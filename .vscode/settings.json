@@ -1,5 +1,6 @@
 {
-    "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
+    "workbench.colorTheme": "Evondev Dracula Normal Contrast",
     "editor.fontVariations": false,
-    "editor.fontWeight": "600"
+    "editor.fontWeight": "400",
+    "glassit.alpha": 240
 }

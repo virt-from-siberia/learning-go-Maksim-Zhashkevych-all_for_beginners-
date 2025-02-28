@@ -1,37 +1,61 @@
 package main
 
 import (
+	"errors"
 	"fmt"
-	"reflect"
 )
 
 func main() {
 
-	// messgae := "Hello world"
+	// print("Вызо 1")
 
-	var secondMessage int
+	// print("Вызо 2")
+	// print("Вызо 3")
 
-	fmt.Println(reflect.TypeOf(secondMessage))
+	// message, entered fmt.Println(sayHello("Alex", 39))
 
-	var message string
-	var number float64
-	var b bool
+	message, entered, err := enterTheClub(15)
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
 
-	newMesage := []byte("asd")
-
-	var a rune = 'a'
-
+	// fmt.Println(enterTheClub(14))
 	fmt.Println(message)
-	fmt.Println(number)
-	fmt.Println(b)
-	fmt.Println(newMesage)
-	fmt.Println(a)
+	fmt.Println(entered)
+	fmt.Println(err)
 
-	a2, b2, c2 := 1, 2, 3
+	predictionResult, predictionErr := prediction("lol")
 
-	a2, b2 = b2, a2
+	fmt.Println(predictionResult)
+	fmt.Println(predictionErr)
 
-	fmt.Println(a2)
-	fmt.Println(b2)
-	fmt.Println(c2)
+}
+
+// func print(message string) {
+// 	fmt.Println(message)
+// }
+
+func sayHello(name string, age int) string {
+	return fmt.Sprintf("Привет %s Тебе %d лет", name, age)
+}
+
+func enterTheClub(age int) (string, bool, error) {
+	if age >= 18 && age <= 45 {
+		response := "Входи"
+		return response, true, nil
+	}
+	return "Вход запрещен", false, errors.New("you are too young")
+}
+
+func prediction(dayOfWeek string) (string, error) {
+
+	switch dayOfWeek {
+	case "Пн":
+		return "Хорошего начала недели!", nil
+	case "Вт":
+		return "Хорошего начала недели!", nil
+	default:
+		return "Неверный день недели", errors.New("invalid day of the week")
+	}
+
 }
