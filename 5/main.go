@@ -1,10 +1,29 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 func main() {
-	messages := [3]string{"1", "2", "3"}
 
-	fmt.Println(messages[1])
+	messages := make([]string, 100)
+	fmt.Println(len(messages))
+	fmt.Println(cap(messages))
 
+	messages = append(messages, "101")
+
+	fmt.Println(len(messages))
+	fmt.Println(cap(messages))
+
+	fmt.Println(messages)
+
+}
+
+func printMessages(messages []string) error {
+	if len(messages) == 0 {
+		return errors.New("empty array")
+	}
+	fmt.Println(messages)
+	return nil
 }
